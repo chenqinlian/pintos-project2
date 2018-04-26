@@ -259,6 +259,11 @@ load (const char *file_name, void (**eip) (void), void **esp, char **save_ptr)
       goto done; 
     }
 
+  printf("2.1hello\n");
+  printf("2.1cql_filename: %s\n", file_name);
+  printf("2.1cql_save_ptr: %s\n", save_ptr);
+
+
   /* Read and verify executable header. */
   if (file_read (file, &ehdr, sizeof ehdr) != sizeof ehdr
       || memcmp (ehdr.e_ident, "\177ELF\1\1\1", 7)
@@ -271,6 +276,10 @@ load (const char *file_name, void (**eip) (void), void **esp, char **save_ptr)
       printf ("load: %s: error loading executable\n", file_name);
       goto done; 
     }
+
+  printf("2.2hello\n");
+  printf("2.2cql_filename: %s\n", file_name);
+  printf("2.2cql_save_ptr: %s\n", save_ptr);
 
   /* Read program headers. */
   file_ofs = ehdr.e_phoff;
